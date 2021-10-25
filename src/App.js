@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import axios from "axios";
+import { WhichHouse } from './components/WhichHouse/WhichHouse';
 
-function App() {
+const filterCharactersWithHouses = characterArray => characterArray ? characterArray.filter(character => character.house) : null;
+
+const App = () => {
+  const [charactersWithHouses, setCharactersWithHouses] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://hp-api.herokuapp.com/api/characters')
+      .then(res => {
+        setCharactersWithHouses(filterCharactersWithHouses(res.data));
+      })
+  }, []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <WhichHouse charactersWithHouses={charactersWithHouses} />
+    </>
   );
 }
 
