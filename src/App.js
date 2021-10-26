@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from './App.module.scss';
 import axios from "axios";
 import { WhichHouse } from './components/WhichHouse/WhichHouse';
 
@@ -15,9 +16,9 @@ const App = () => {
   }, []);
   
   return (
-    <>
+    <div className={styles.wrapper}>
       <WhichHouse charactersWithHouses={charactersWithHouses} />
-    </>
+    </div>
   );
 }
 

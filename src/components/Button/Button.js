@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './GuessButton.module.scss';
+import clsx from 'clsx';
+import styles from './Button.module.scss';
 
-export const GuessButton = ({ text, handleGuess }) => (
-  <div className={styles.wrapper}>
+export const Button = ({ text, handleGuess }) => (
+  <div className={clsx(styles.wrapper, styles[text.toLowerCase()])} onClick={() => handleGuess(text)}>
     {text}
   </div>
 )

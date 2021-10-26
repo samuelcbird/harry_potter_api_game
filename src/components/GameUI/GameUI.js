@@ -1,13 +1,13 @@
 import React from 'react';
-import { GuessButton } from '../GuessButton/GuessButton';
+import { ButtonPanel } from '../ButtonPanel/ButtonPanel';
 
-export const GameUI = ({ currentCharacter, nextCharacter, currentCharacterIndex }) => {
+export const GameUI = ({ currentCharacter, handleGuess, currentCharacterIndex }) => {
+
   return (
-    <>
+    <div>
       <h1>{currentCharacter.name}</h1>
-      <p>round: {currentCharacterIndex}</p>
-      <button onClick={() => nextCharacter()}>next character</button>
-      <GuessButton text="hufflepuffy" />
-    </>
+      <ButtonPanel handleGuess={handleGuess} />
+      <h3><i>You've survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}...</i></h3>
+    </div>
   )
 }

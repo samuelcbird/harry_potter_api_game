@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import styles from './WhichHouse.module.scss';
 import { GameUI } from '../GameUI/GameUI';
 
 const shuffleArray = array => {
@@ -40,14 +41,48 @@ const useShuffledObjectArray = array => {
     setCurrentElement(fullArray[currentElementIndex]);
   }
 
-  return [currentElement, nextElement, currentElementIndex];
+  const reset = newArray => {
+    setCurrentElementIndex(0)
+    setCurrentElement({})
+    setUsedElements([])
+    setArray(newArray);
+  }
+
+  return [currentElement, nextElement, currentElementIndex, reset];
 }
 
 export const WhichHouse = ({ charactersWithHouses }) => {
-  const [currentCharacter, nextCharacter, currentCharacterIndex] = useShuffledObjectArray(charactersWithHouses);
+  const [currentCharacter, nextCharacter, currentCharacterIndex, resetCharacters] = useShuffledObjectArray(charactersWithHouses);
+  const [gameOver, setGameOver] = useState(false);
 
-  if (currentCharacter) {
-    return <GameUI currentCharacter={currentCharacter} nextCharacter={nextCharacter} currentCharacterIndex={currentCharacterIndex} />
+  const handleGuess = guess => {
+    if (guess === currentCharacter.house) {
+      nextCharacter();
+    } else {
+      setGameOver(true);
+    }
+  }
+
+  const handlePlayAgain = () => {
+    resetCharacters(charactersWithHouses);
+    setGameOver(false);
+  }
+
+  if (gameOver) {
+    return (
+      <div>
+        <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
+        <button onClick={handlePlayAgain}>play again</button>
+      </div>
+    )
+  }
+  else if (currentCharacter) {
+    return (
+      <div className={styles.wrapper}>
+        <h3>Can you correctly identify the character's Hogwarts house?</h3>
+       <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
+      </div>
+    )
   } else {
     return (
       <>
