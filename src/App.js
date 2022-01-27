@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import styles from './App.module.scss';
 import axios from "axios";
 import { WhichHouse } from './components/WhichHouse/WhichHouse';
+import { Header } from './components/Header/Header';
 
 const filterCharactersWithHouses = characterArray => characterArray ? characterArray.filter(character => character.house) : null;
 
@@ -16,9 +18,14 @@ const App = () => {
   }, []);
   
   return (
-    <div className={styles.wrapper}>
-      <WhichHouse charactersWithHouses={charactersWithHouses} />
-    </div>
+    <>
+      <Header />
+      <div className={styles.wrapper}>
+        <AnimatePresence>
+          <WhichHouse charactersWithHouses={charactersWithHouses} />
+        </AnimatePresence>
+      </div>
+    </>
   );
 }
 

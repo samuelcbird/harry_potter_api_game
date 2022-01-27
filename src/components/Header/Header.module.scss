@@ -1,0 +1,16 @@
+@import '../../styles/global.scss';
+
+.wrapper {
+  position: relative;
+  background: $grey-100;
+  height: 80px;
+  margin-bottom: 100px;
+  div {
+    max-width: 850px;
+  }
+  svg {
+    position: relative;
+    top: -30px;
+    z-index: -1;
+  }
+}

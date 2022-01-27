@@ -1,6 +1,10 @@
+@import '../../styles/global.scss';
+
 .wrapper {
   display: grid;
-  max-width: 450px;
-  grid-template-columns: 1fr 1fr;
-  padding-bottom: 20px;
+  max-width: 100%;
+  min-height: 200px;
+  grid-template-columns: 1fr 1fr ;
+  // background: $blue-100;
+  border-radius: 30px;
 }

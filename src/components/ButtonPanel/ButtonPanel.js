@@ -4,9 +4,9 @@ import styles from './ButtonPanel.module.scss';
 
 export const ButtonPanel = ({ handleGuess }) => (
     <div className={styles.wrapper}>
-      <Button text="Gryffindor" handleGuess={handleGuess} />
-      <Button text="Hufflepuff" handleGuess={handleGuess} />
-      <Button text="Ravenclaw" handleGuess={handleGuess} />
-      <Button text="Slytherin" handleGuess={handleGuess} />
+      <Button text="Gryffindor" handleClick={handleGuess} />
+      <Button text="Hufflepuff" handleClick={handleGuess} />
+      <Button text="Ravenclaw" handleClick={handleGuess} />
+      <Button text="Slytherin" handleClick={handleGuess} />
     </div>
 )

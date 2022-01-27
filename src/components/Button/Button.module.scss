@@ -1,37 +1,41 @@
-@font-face {
-  font-family: 'Irish Grover';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/irishgrover/v12/buExpoi6YtLz2QW7LA4flVgv__RPSC8ocg.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+@import '../../styles/global.scss';
 
 .wrapper {
   display: flex;
-  font-size: 1.6rem;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  width: 100%;
-  color: hsl(0, 11%, 96%);
-  font-family: 'Irish Grover';
+  align-self: center;
+  position: relative;
+  background: $blue-500;
   cursor: pointer;
-  border-radius: 20px;
-}
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1.1rem;
+  font-style: oblique;
+  border: none;
+  margin-top: 25px;
+  margin-bottom: 25px;
 
-.gryffindor {
-  background: linear-gradient(135deg, #cf3030, #c12d2d, #b22929, #a42626, #962323, #891f20, #7b1c1c, #6e1919);
-}
+  height: 50px;
+  width: 90%;
+  border-radius: 30px;
 
-.hufflepuff {
-  background: linear-gradient(135deg, #e0e010, #d1d10f, #c2c20e, #b3b30d, #a4a40c, #96960b, #88880a, #7a7a09);
-}
+  span {
+    position: absolute;
+    display: flex;
+    top: -5px;
 
-.ravenclaw {
-  background: linear-gradient(135deg, #4d4db3, #4545a1, #3d3e8f, #36367e, #2e2f6d, #27285d, #21214d, #1a1a3d);
-}
+    line-height: 50px;
+    background: $grey-100;
+    justify-content: center;
 
-.slytherin {
-  background: linear-gradient(135deg, #2b882b, #277b27, #236e23, #1f621f, #1b561c, #174a18, #143e14, #103310);
+    height: 50px;
+    width: 100%;
+    border-radius: 30px;
+    color: $grey-500;
+    transition: 50ms ease-out;
+  }
+  span:hover {
+    top: -8px;
+  }
+  span:active {
+      top: 0;
+  }
 }

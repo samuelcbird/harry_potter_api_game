@@ -1,18 +1,25 @@
+@import './styles/global.scss';
+
 .wrapper {
-  padding-top: 50px;
-  color: white;
-  h1 {
-    text-align: center;
-    padding: 50px 0 50px 0;
-    font-size: 4rem;
-  }
-  h3 {
-    text-align: center;
-    font-weight: 400;
-  }
+  position: relative;
+  // padding: 50px;
+  color: $grey-500;
+  // background: $grey-100;
+  margin: 20px auto;
   max-width: 800px;
-  margin: 0 auto;
-  div {
-    margin: 0 auto;
-  }
+  border-radius: 30px;
+
+
+  background: rgba( 255, 255, 255, 0.50 );
+  // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow:
+    2.4px 3px 2.7px -35px rgba(0, 0, 0, 0.022),
+    6px 7.6px 6.9px -35px rgba(0, 0, 0, 0.031),
+    12.2px 15.6px 14.2px -35px rgba(0, 0, 0, 0.039),
+    25.2px 32.1px 29.2px -35px rgba(0, 0, 0, 0.048),
+    69px 88px 80px -35px rgba(0, 0, 0, 0.07)
+  ;
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }

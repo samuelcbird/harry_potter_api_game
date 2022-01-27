@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import styles from './WhichHouse.module.scss';
 import { GameUI } from '../GameUI/GameUI';
+import { Button } from '../Button/Button';
 
 const shuffleArray = array => {
   // Fisher-Yates shuffle
@@ -70,24 +72,30 @@ export const WhichHouse = ({ charactersWithHouses }) => {
 
   if (gameOver) {
     return (
-      <div>
+      <div className={styles.wrapper}>
         <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
-        <button onClick={handlePlayAgain}>play again</button>
+        <Button text="Play again?" handleClick={handlePlayAgain} />
       </div>
     )
   }
   else if (currentCharacter) {
     return (
-      <div className={styles.wrapper}>
-        <h3>Can you correctly identify the character's Hogwarts house?</h3>
-       <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
-      </div>
+      
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className={styles.wrapper}
+        >
+          <h3>Can you correctly identify the character's Hogwarts house?</h3>
+        <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
+        </motion.div>
     )
   } else {
     return (
-      <>
+      <div className={styles.wrapper}>
         Loading...
-      </>
+      </div>
     )
   }
 }
