@@ -1,9 +1,9 @@
-@import './styles/global.scss';
+@use '/src/styles/config/colours' as colours;
 
 .wrapper {
   position: relative;
   justify-self: center;
-  color: $grey-500;
+  color: colours.$grey-500;
   max-width: 800px;
   border-radius: 30px;
 

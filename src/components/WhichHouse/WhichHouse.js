@@ -82,10 +82,10 @@ export const WhichHouse = ({ charactersWithHouses }) => {
     return (
       
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={styles.wrapper}
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // exit={{ opacity: 0 }}
+          // className={styles.wrapper}
         >
           <h3>Can you correctly identify the character's Hogwarts house?</h3>
         <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />

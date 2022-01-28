@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './App.module.scss';
 import axios from "axios";
 import { WhichHouse } from './components/WhichHouse/WhichHouse';
@@ -26,9 +26,7 @@ const App = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <AnimatePresence>
             <WhichHouse charactersWithHouses={charactersWithHouses} />
-          </AnimatePresence>
         </motion.div>
       </div>
     </>
