@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import styles from './App.module.scss';
 import axios from "axios";
 import { WhichHouse } from './components/WhichHouse/WhichHouse';
@@ -19,11 +19,17 @@ const App = () => {
   
   return (
     <>
-      <Header />
-      <div className={styles.wrapper}>
-        <AnimatePresence>
-          <WhichHouse charactersWithHouses={charactersWithHouses} />
-        </AnimatePresence>
+    <Header />
+      <div className={styles.padding}>
+        <motion.div 
+          className={styles.wrapper}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <AnimatePresence>
+            <WhichHouse charactersWithHouses={charactersWithHouses} />
+          </AnimatePresence>
+        </motion.div>
       </div>
     </>
   );
