@@ -1,3 +1,4 @@
+@forward '/src/styles/config/colours';
 @use '/src/styles/config/colours' as colours;
 
 .wrapper {
@@ -5,12 +6,22 @@
   background: colours.$grey-100;
   height: 80px;
   margin-bottom: 100px;
-  div {
-    max-width: 850px;
-  }
   svg {
     position: relative;
     top: -30px;
     z-index: -1;
   }
 }
+
+.title_and_button {
+  display: flex;
+  flex-direction: row;
+  max-width: 850px;
+  align-items: center;
+}
+
+.title {
+  position: relative;
+  flex-grow: 2;
+}
+

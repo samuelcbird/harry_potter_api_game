@@ -1,0 +1,40 @@
+@forward '/src/styles/config/colours';
+@use '/src/styles/config/colours' as colours;
+
+.wrapper {
+  display: flex;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  background: colours.$blue-300;
+  border-radius: 25px;
+  align-items: center;
+  margin: 0 20px;
+  
+  div {
+    position: relative;
+    background: colours.$grey-100;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0;
+  }
+}
+
+.flex_start {
+  justify-content: flex-start;
+}
+
+.flex_end {
+  justify-content: flex-end;
+}
+
+// @media (prefers-color-scheme) {
+//   .wrapper {
+//     background: colours.$grey-100;
+//     div {
+//       background: colours.$blue-300;
+//     }
+//   }
+// }

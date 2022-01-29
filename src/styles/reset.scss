@@ -8,7 +8,7 @@ body {
   color: colours.$grey-500;
   font-size: 16px;
   line-height: 1.5;
-  background: linear-gradient(166deg, hsla(225, 35%, 80%, 100%), hsla(232, 25%, 35%, 55%)), url('../svgs/light_squares.svg');
+  background: linear-gradient(166deg, hsla(225, 35%, 80%, 0.9), hsla(273, 41%, 27%, 0.65)), url('../svgs/light_squares.svg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -39,4 +39,3 @@ body {
     margin: 0 auto;
   }
 }
-// 
