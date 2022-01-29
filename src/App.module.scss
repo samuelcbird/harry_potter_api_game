@@ -8,8 +8,10 @@
   border-radius: 30px;
 
 
-  background: rgba( 255, 255, 255, 0.50 );
-  // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  // background: rgba( 255, 255, 255, 0.50 );
+
+  background: linear-gradient(-18deg, rgba( 255, 255, 255, 0.20 ), rgba( 255, 255, 255, 0.60 ), rgba( 255, 255, 255, 0.20 ));
+
   box-shadow:
     2.4px 3px 2.7px -35px rgba(0, 0, 0, 0.022),
     6px 7.6px 6.9px -35px rgba(0, 0, 0, 0.031),

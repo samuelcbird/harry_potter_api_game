@@ -1,0 +1,21 @@
+.loader {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-items: center;
+  width: 30px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 0 auto;
+  // border: 1px blue solid;
+  transform: rotate(20deg);
+  margin: 50px;
+}
+
+.loader div {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: crimson;
+}

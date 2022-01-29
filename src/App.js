@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import styles from './App.module.scss';
 import axios from "axios";
 import { WhichHouse } from './components/WhichHouse/WhichHouse';
@@ -20,15 +19,11 @@ const App = () => {
   return (
     <>
     <Header />
-      <div className={styles.padding}>
-        <motion.div 
-          className={styles.wrapper}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-            <WhichHouse charactersWithHouses={charactersWithHouses} />
-        </motion.div>
-      </div>
+      <section className={styles.padding}>
+        <div className={styles.wrapper}>
+          <WhichHouse charactersWithHouses={charactersWithHouses} />
+        </div>
+      </section>
     </>
   );
 }

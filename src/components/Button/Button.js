@@ -6,8 +6,8 @@ import styles from './Button.module.scss';
 export const Button = ({ text, handleClick }) => (
   <div className={styles.wrapper} onClick={() => handleClick(text)}>
     <motion.span
-      whileHover={{ y: -4, scale: 1.02 }}
-      whileTap={{ y: 1, scale: 1 }}
+      // whileHover={{ y: -4, scale: 1.02 }}
+      // whileTap={{ y: 1, scale: 1 }}
     >{text}</motion.span>
   </div>
 )

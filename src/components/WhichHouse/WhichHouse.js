@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
 import styles from './WhichHouse.module.scss';
+import { motion, AnimatePresence } from 'framer-motion';
 import { GameUI } from '../GameUI/GameUI';
 import { Button } from '../Button/Button';
+import { Loader } from '../Loader/Loader';
 
 const shuffleArray = array => {
   // Fisher-Yates shuffle
@@ -53,6 +54,23 @@ const useShuffledObjectArray = array => {
   return [currentElement, nextElement, currentElementIndex, reset];
 }
 
+const animationVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      duration: 0.2, 
+      when: "beforeChildren"
+    }
+  }, 
+  exit: {
+    opacity: 0,
+  }
+}
+
 export const WhichHouse = ({ charactersWithHouses }) => {
   const [currentCharacter, nextCharacter, currentCharacterIndex, resetCharacters] = useShuffledObjectArray(charactersWithHouses);
   const [gameOver, setGameOver] = useState(false);
@@ -72,30 +90,45 @@ export const WhichHouse = ({ charactersWithHouses }) => {
 
   if (gameOver) {
     return (
-      <div className={styles.wrapper}>
-        <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
-        <Button text="Play again?" handleClick={handlePlayAgain} />
-      </div>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div layout key="1"
+          variants={animationVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
+          <Button text="Play again?" handleClick={handlePlayAgain} />
+        </motion.div>
+      </AnimatePresence>
     )
   }
   else if (currentCharacter) {
     return (
-      
-        <motion.div
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // exit={{ opacity: 0 }}
-          // className={styles.wrapper}
+      <AnimatePresence exitBeforeEnter> 
+        <motion.div layout key="2"
+          variants={animationVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
         >
           <h3>Can you correctly identify the character's Hogwarts house?</h3>
-        <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
+          <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
         </motion.div>
+      </AnimatePresence>
     )
   } else {
     return (
-      <div className={styles.wrapper}>
-        Loading...
-      </div>
+      <AnimatePresence>
+        <motion.div layout className={styles.wrapper} key="3"
+          variants={animationVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <Loader />
+        </motion.div>
+      </AnimatePresence>
     )
   }
 }
