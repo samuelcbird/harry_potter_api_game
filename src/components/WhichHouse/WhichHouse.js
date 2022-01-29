@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import styles from './WhichHouse.module.scss';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { GameUI } from '../GameUI/GameUI';
 import { Button } from '../Button/Button';
 import { Loader } from '../Loader/Loader';
@@ -88,47 +87,33 @@ export const WhichHouse = ({ charactersWithHouses }) => {
     setGameOver(false);
   }
 
-  if (gameOver) {
-    return (
-      <AnimatePresence exitBeforeEnter>
-        <motion.div layout key="1"
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <AnimateSharedLayout>
+        <motion.div layout key={gameOver ? 0 : currentCharacter ? 1 : 2}
           variants={animationVariants}
           initial="initial"
           animate="animate"
           exit="exit"
         >
-          <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
-          <Button text="Play again?" handleClick={handlePlayAgain} />
+          {gameOver ? (
+            <div>
+              <h1><i>You survived {currentCharacterIndex} {currentCharacterIndex === 1 ? 'round' : 'rounds'}.</i></h1>
+              <Button text="Play again?" handleClick={handlePlayAgain} />
+            </div>
+          ) : currentCharacter ? (
+            <div>
+              <h3>Can you correctly identify the character's Hogwarts house?</h3>
+              <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
+            </div>
+          ) : (
+            <div>
+              <Loader />
+            </div>
+          )}
         </motion.div>
-      </AnimatePresence>
-    )
-  }
-  else if (currentCharacter) {
-    return (
-      <AnimatePresence exitBeforeEnter> 
-        <motion.div layout key="2"
-          variants={animationVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <h3>Can you correctly identify the character's Hogwarts house?</h3>
-          <GameUI currentCharacter={currentCharacter} handleGuess={handleGuess} currentCharacterIndex={currentCharacterIndex} />
-        </motion.div>
-      </AnimatePresence>
-    )
-  } else {
-    return (
-      <AnimatePresence>
-        <motion.div layout className={styles.wrapper} key="3"
-          variants={animationVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <Loader />
-        </motion.div>
-      </AnimatePresence>
-    )
-  }
+      </AnimateSharedLayout>
+    </AnimatePresence>
+  )
+
 }
