@@ -3,6 +3,7 @@ import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { GameUI } from '../GameUI/GameUI';
 import { Button } from '../Button/Button';
 import { Loader } from '../Loader/Loader';
+import styles from './WhichHouse.module.scss'
 
 const shuffleArray = array => {
   // Fisher-Yates shuffle
@@ -91,6 +92,7 @@ export const WhichHouse = ({ charactersWithHouses }) => {
     <AnimatePresence exitBeforeEnter>
       <AnimateSharedLayout>
         <motion.div layout key={gameOver ? 0 : currentCharacter ? 1 : 2}
+          className={styles.wrapper}
           variants={animationVariants}
           initial="initial"
           animate="animate"

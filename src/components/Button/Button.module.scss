@@ -21,8 +21,8 @@
     position: absolute;
     display: flex;
     top: -5px;
-
-    line-height: 50px;
+    align-items: center;
+    
     background: colours.$grey-100;
     justify-content: center;
 
@@ -38,4 +38,16 @@
   // span:active {
   //     top: 0;
   // }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    font-size: 0.95rem;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    span {
+      height: 40px;
+    }
+  }
 }

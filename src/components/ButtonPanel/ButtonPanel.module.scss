@@ -6,3 +6,10 @@
   // background: $blue-100;
   border-radius: 30px;
 }
+
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 4);
+  }
+}

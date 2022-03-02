@@ -6,18 +6,25 @@
   background: colours.$grey-100;
   height: 80px;
   margin-bottom: 100px;
+
+  h2 {
+    background: colours.$grey-100;
+  }
+
   svg {
     position: relative;
-    top: -30px;
+    bottom: 0px;
     z-index: -1;
   }
 }
 
 .title_and_button {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   max-width: 850px;
   align-items: center;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 
 .title {
@@ -25,3 +32,17 @@
   flex-grow: 2;
 }
 
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    margin-bottom: 60px;
+  }
+  .title {
+    font-size: 0.85rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .title {
+    white-space: normal;
+    font-size: 0.8rem;
+  }
+}
