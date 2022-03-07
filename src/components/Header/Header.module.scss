@@ -6,6 +6,7 @@
   background: colours.$grey-100;
   height: 80px;
   margin-bottom: 100px;
+  min-width: 330px;
 
   h2 {
     background: colours.$grey-100;
@@ -13,7 +14,7 @@
 
   svg {
     position: relative;
-    bottom: 0px;
+    bottom: 2px;
     z-index: -1;
   }
 }
@@ -25,6 +26,7 @@
   align-items: center;
   white-space: nowrap;
   overflow-x: hidden;
+  overflow: hidden;
 }
 
 .title {
