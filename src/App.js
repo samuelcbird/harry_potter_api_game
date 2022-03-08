@@ -10,7 +10,7 @@ const App = () => {
   const [charactersWithHouses, setCharactersWithHouses] = useState([]);
 
   useEffect(() => {
-    axios.get('http://hp-api.herokuapp.com/api/characters')
+    axios.get('https://hp-api.herokuapp.com/api/characters')
       .then(res => {
         console.log('fetched');
         console.log(res.data);
