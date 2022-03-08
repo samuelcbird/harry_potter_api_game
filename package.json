@@ -1,5 +1,6 @@
 {
   "name": "hp-game",
+  "homepage": "https://samuelcbird.github.io/harry_potter_game/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
