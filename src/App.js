@@ -12,6 +12,8 @@ const App = () => {
   useEffect(() => {
     axios.get('http://hp-api.herokuapp.com/api/characters')
       .then(res => {
+        console.log('fetched');
+        console.log(res.data);
         setCharactersWithHouses(filterCharactersWithHouses(res.data));
       })
   }, []);
