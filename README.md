@@ -26,4 +26,7 @@ Runs as expected.
 
 ## What's next?
 
-I would like to add the functionality for users to keep track of their scores. This could be in the form of local browser storage or alternatively using an external database, I could introduce a leaderboard system too.
+When I get more time to work on this project I would like to:
+
+- Improve the accessibility so the game is playable using just the keyboard.
+- Add the functionality for users to keep track of their scores. This could be in the form of local browser storage or alternatively, if using an external database I could introduce a leaderboard system too.
