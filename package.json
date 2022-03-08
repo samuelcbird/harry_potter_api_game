@@ -1,6 +1,6 @@
 {
   "name": "hp-game",
-  "homepage": "harry-potter-game.vercel.app",
+  "homepage": "http://harry-potter-game.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
