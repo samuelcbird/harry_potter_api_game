@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styles from './Loader.module.scss';
+import logo from './favicon.png';
 
 const variants = {
   animationOne: {
@@ -20,7 +21,7 @@ export const Loader = () => {
       animate="animationOne"
       className={styles.loader}
     >
-      <div></div>
+      <img alt="loading" src={logo}></img>
     </motion.div>
   );
 };
