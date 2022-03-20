@@ -6,23 +6,36 @@
   background: colours.$grey-100;
   margin-bottom: 100px;
   min-width: 330px;
+
+  dialog {
+    padding-top: 0;
+    max-width: 50ch;
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+    border: none;
+    .close {
+      position: absolute;
+      cursor: pointer;
+      top: 5px;
+      right: 5px;
+    }
+  }
+  dialog::backdrop {
+    background: rgb(0 0 0 / .3);
+  }
 }
 
 .title {
+  display: flex;
   max-width: 800px;
   margin: 0 auto;
+  justify-content: space-between;
+
+  span {
+    padding: 0 20px;
+    align-self: center;
+    cursor: pointer;
+  }
 }
-
-// .wrapper::after {
-//   position: absolute;
-//   content: " ";
-//   height: 100px;
-//   width: 100vw;
-//   min-width: 330px;
-//   background: url(/svgs/wave.svg);
-//   background-repeat: no-repeat;
-// }
-
 
 @media only screen and (max-width: 600px) {
   .wrapper {
