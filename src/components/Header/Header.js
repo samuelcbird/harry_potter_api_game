@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './Header.module.scss';
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
 
 export const Header = () => {
   return (
