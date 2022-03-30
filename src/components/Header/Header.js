@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.scss';
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
+import { Modal } from '../Modal/Modal';
 
 export const Header = () => {
+  const [modalHidden, setModalHidden] = useState(true);
 
-  const dialogRef = useRef();
+  const toggleModal = () => {
+    setModalHidden(!modalHidden);
+  }
 
   return (
     <header className={styles.wrapper}>
@@ -17,21 +20,16 @@ export const Header = () => {
       >Sam's Harry Potter Quiz</motion.h2>
       <span
         className='material-icons-outlined'
-        onClick={() => dialogRef.current.showModal()}
+        onClick={() => toggleModal()}
       >info</span>
     </div>
-
-    <dialog ref={dialogRef}>  
-      <span 
-        className={clsx('material-icons', styles.close)}
-        onClick={() => dialogRef.current.close()}  
-      >close</span>
+    <Modal isHidden={modalHidden} toggle={toggleModal}>
       <h4>Instructions</h4>
       The aim of the game is simply to choose the correct Hogwarts House for the character that is currently displayed on screen, and to survive for as long as possible.
 
       <h4>Credits</h4>
       Thank you to <a href="https://twitter.com/edinbeth?s=20&t=2HMDRj5ssdbaiozcy-WcMg" rel="noreferrer" target="_blank">Beth Fraser</a> who created and hosts the <a href="https://hp-api.herokuapp.com/" rel="noreferrer" target="_blank">Harry Potter API</a> from which I gather the data for this game.
-    </dialog>
+    </Modal>
   </header>
   )
 }

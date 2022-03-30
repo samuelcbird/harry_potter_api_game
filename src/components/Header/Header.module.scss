@@ -6,23 +6,9 @@
   background: colours.$grey-100;
   margin-bottom: 100px;
   min-width: 330px;
-
-  dialog {
-    padding-top: 0;
-    max-width: 50ch;
-    box-shadow: 0 0 1em rgb(0 0 0 / .3);
-    border: none;
-    .close {
-      position: absolute;
-      cursor: pointer;
-      top: 5px;
-      right: 5px;
-    }
-  }
-  dialog::backdrop {
-    background: rgb(0 0 0 / .3);
-  }
 }
+
+
 
 .title {
   display: flex;
