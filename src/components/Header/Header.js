@@ -25,7 +25,7 @@ export const Header = () => {
     </div>
     <Modal isHidden={modalHidden} toggle={toggleModal}>
       <h4>Instructions</h4>
-      The aim of the game is simply to choose the correct Hogwarts House for the character that is currently displayed on screen, and to survive for as long as possible.
+      The aim of the game is to correctly identify which of the four Hogwarts Houses the witch or wizard on screen belongs to.
 
       <h4>Credits</h4>
       Thank you to <a href="https://twitter.com/edinbeth?s=20&t=2HMDRj5ssdbaiozcy-WcMg" rel="noreferrer" target="_blank">Beth Fraser</a> who created and hosts the <a href="https://hp-api.herokuapp.com/" rel="noreferrer" target="_blank">Harry Potter API</a> from which I gather the data for this game.
