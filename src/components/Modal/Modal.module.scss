@@ -1,0 +1,29 @@
+@forward '/src/styles/config/colours';
+@use '/src/styles/config/colours' as colours;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 15%, 80%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  
+  .content {
+    position: relative;
+    background-color: colours.$grey-100;
+    max-width: 50ch;
+    border: 10px solid colours.$grey-100;
+  }
+
+  .close {
+    position:absolute;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+}
