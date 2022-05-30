@@ -7,6 +7,7 @@ import { Header } from './components/Header/Header';
 const filterCharactersWithHouses = characterArray => characterArray ? characterArray.filter(character => character.house) : null;
 
 const App = () => {
+  const [apiDown, setApiDown] = useState(false);
   const [charactersWithHouses, setCharactersWithHouses] = useState([]);
 
   useEffect(() => {
@@ -14,15 +15,32 @@ const App = () => {
       .then(res => {
         setCharactersWithHouses(filterCharactersWithHouses(res.data));
       })
+      .catch(error => {
+        setApiDown(true);
+      })
   }, []);
   
   return (
     <>
-    <Header />
+      <Header />
       <section className={styles.padding}>
-        <div className={styles.wrapper}>
-          <WhichHouse charactersWithHouses={charactersWithHouses} />
-        </div>
+
+        { apiDown ?
+        (
+          <div className={styles.wrapper}>
+            <p>Unfortunately the third party API which provides our Harry Potter data seems to be down. Sorry for the inconvenience.</p>
+             
+            <p>Refresh the page to try again.</p>
+          </div>
+        ) :
+        (
+          <div className={styles.wrapper}>
+            <WhichHouse charactersWithHouses={charactersWithHouses} />
+          </div>
+        )
+        }
+
+
       </section>
     </>
   );
