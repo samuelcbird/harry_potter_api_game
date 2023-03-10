@@ -11,7 +11,8 @@ const App = () => {
   const [charactersWithHouses, setCharactersWithHouses] = useState([]);
 
   useEffect(() => {
-    axios.get('https://hp-api.herokuapp.com/api/characters')
+		// https://hp-api.onrender.com/api/characters
+    axios.get('https://hp-api.onrender.com/api/characters')
       .then(res => {
         setCharactersWithHouses(filterCharactersWithHouses(res.data));
       })
